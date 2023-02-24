@@ -23,3 +23,9 @@ A shell script, test_coverage.sh manages the main workflow. The steps are:
 4) Create a text file that summarizes the test files (which were used and which were not) ('test_name'_file_summary.txt)
 5) Generate the cmake build system
 6) Execute test, collect coverage data, and generate a html of the coverage report.
+
+# Notes
+The output text file is designed to be read by /test/CMakeLists.txt. See the [example](#data/CMakeLists_example.txt)
+
+
+
