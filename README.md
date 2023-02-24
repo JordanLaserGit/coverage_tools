@@ -7,13 +7,15 @@ This tool set is designed to produce automated test coverage report using lcov t
 
 ## Run it
 ```shell
-bash test_coverage.sh test_coverage.json path to project
+bash test_coverage.sh test_coverage.json project_path
 ```
 ## Dependencies
 1) jq
 2) python 3.8
 
-'sudo yum install jq python38'
+```shell
+sudo yum install jq python38
+```
 
 # Workflow explanation
 A shell script, test_coverage.sh manages the main workflow. The steps are:
@@ -25,7 +27,8 @@ A shell script, test_coverage.sh manages the main workflow. The steps are:
 6) Execute test, collect coverage data, and generate a html of the coverage report.
 
 # Notes
-The output text file is designed to be read by /test/CMakeLists.txt. See the [example](#data/CMakeLists_example.txt)
+The output text file will be placed in test/coverage and is designed to be read by /test/CMakeLists.txt. See the [example](#data/CMakeLists_example.txt)
+
 
 
 
