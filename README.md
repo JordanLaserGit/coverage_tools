@@ -1,6 +1,19 @@
-This tool set is designed to produce automated test coverage based on the cmake options for a given project. The aim is for this tool to generate a test coverage report using all googletests that should be executed given the cmake options for a partiular build.
+This tool set is designed to produce automated test coverage report using lcov that is based on the cmake options for a given c++ project, with specific design decisions made with the Next Generation Water Model in mind. The aim is for this tool to generate a test coverage report using all googletests that should be executed given the cmake options for a partiular build. The project was built to run on Linux, specifically Fedora although the distro shouldn't matter.
 
-his tool was designed for the Next Generation Water Model, but should generalize to any C++ project that is being tested with googletest. ** Note, the formatting of the generated text file may need to be adjusted to suit how CMakeLists. creates the tests.
+# Intructions
+1) Ensure [Dependencies](#dependencies) have been installed.
+2) Adjust options in [config](#/test_coverage/test_coverage.json), see [config example](#/data/config_example.py)
+3) [Run it!](#run-it)
+
+## Run it
+```shell
+bash test_coverage.sh test_coverage.json path to project
+```
+## Dependencies
+1) jq
+2) python 3.8
+
+'sudo yum install jq python38'
 
 # Workflow explanation
 A shell script, test_coverage.sh manages the main workflow. The steps are:
@@ -10,16 +23,3 @@ A shell script, test_coverage.sh manages the main workflow. The steps are:
 4) Create a text file that summarizes the test files (which were used and which were not) ('test_name'_file_summary.txt)
 5) Generate the cmake build system
 6) Execute test, collect coverage data, and generate a html of the coverage report.
-
-# Intructions
-
-## configs
-
-In test_coverage.json, include the cmake options under the field "options". Also give this test a name and select verbose bool.
-
-In test_libs.json, the user can provide lists of google tests and folders to exclude. Also, the user must add the project libraries that are being tested. 
-
-## Run it
-
-command 'arg1' 'arg2' 'arg3'
-bash test_coverage.sh 'path to test_coverage.json' 'path to test_libs.json' 'path to project'
