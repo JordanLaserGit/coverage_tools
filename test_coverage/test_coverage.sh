@@ -18,6 +18,9 @@ project_root=$2
 echo "CONFIG:        $config"
 echo "PROJECT ROOT:  $project_root"
 
+# Create folder to store test files
+mkdir -p "$project_root/test/coverage"
+
 # Generate test -text.txt to be read by CMakeLists.txt
 cov_dir=$(dirname "$config")
 echo "COVERAGE DIR:  $cov_dir"
@@ -26,9 +29,6 @@ python -u $python_script $config $project_root
 
 # Change working directory to project root
 cd $project_root
-
-# Create folder to store test files
-mkdir -p "$project_root/test/coverage"
 
 # Remove any previous build
 build_name=$test_name"-build"
