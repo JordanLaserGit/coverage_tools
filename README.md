@@ -5,7 +5,7 @@ This tool set is designed to produce automated test coverage report using lcov t
 2) Adjust options in [config](#/test_coverage/test_coverage.json), see [config example](https://github.com/JordanLaserGit/coverage_tools/blob/main/data/config_example.py)
 3) [Run it!](#run-it)
 
-## Run it
+## Run it (linux or WSL)
 ```shell
 bash test_coverage.sh test_coverage.json project_path
 ```
@@ -29,6 +29,8 @@ A shell script, test_coverage.sh manages the main workflow. The steps are:
 # Notes
 The output text file will be placed in test/coverage and is designed to be read by /test/CMakeLists.txt. See the [example](https://github.com/JordanLaserGit/coverage_tools/blob/main/data/CMakeLists_example.txt)
 
+The code coverage report is output to the data folder as coverage_report.html
 
 
 
+ 
