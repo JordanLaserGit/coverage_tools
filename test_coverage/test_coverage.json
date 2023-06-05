@@ -4,13 +4,13 @@
 
     "options"        : {
 
-        "DBMI_C_LIB_ACTIVE"      : "TRUE",
-        "DBMI_FORTRAN_ACTIVE"    : "TRUE",
+        "DBMI_C_LIB_ACTIVE"      : "FALSE",
+        "DBMI_FORTRAN_ACTIVE"    : "FALSE",
         "DCMAKE_BUILD_TYPE"      : "Debug",
         "DCOVERAGE"              : "TRUE",
         "DET_QUIET"              : "FALSE",
         "DLSTM_TORCH_LIB_ACTIVE" : "FALSE",
-        "DMPI_ACTIVE"            : "TRUE",
+        "DMPI_ACTIVE"            : "FALSE",
         "DNETCDF_ACTIVE"         : "FALSE",
         "DNGEN_ACTIVATE_PYTHON"  : "FALSE",
         "DNGEN_ACTIVATE_ROUTING" : "FALSE",
@@ -31,8 +31,7 @@
         "HymodTest.cpp",
         "Pdm03_Test.cpp",
         "Et_Calc_Function_Test.cpp",
-        "Et_All_Methods_Test.cpp"
-                    
+        "Et_All_Methods_Test.cpp"  
     ],
 
     "target_dirs":[
