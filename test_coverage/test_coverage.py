@@ -96,11 +96,13 @@ ProjectTest.files = ProjectTest.find_files()
 # Write summary text file
 file_str += f'\n\n------Including source files from folders -------\n'        
 for jdir in ProjectSrc.folders['src']:
-    file_str += f'{jdir}\n'
+    rel = os.path.relpath(jdir,ProjectSrc.path_to_project)
+    file_str += f'{rel}\n'
 
 file_str += f'\n------Excluding source file folders -------\n'        
 for jdir in ProjectSrc.folders_ignore_with_file_type['src']:
-    file_str += f'{jdir}\n'        
+    rel = os.path.relpath(jdir,ProjectSrc.path_to_project)
+    file_str += f'{rel}\n'
 
 file_str += '\n------- source files included -------'
 for jfile in ProjectSrc.files['src']:
@@ -114,11 +116,13 @@ for jfile in ProjectSrc.files_ignored['src']:
 
 file_str += f'\n\n------Including googletest files from folders -------\n'        
 for jdir in ProjectTest.folders['test']:
-    file_str += f'{jdir}\n'
+    rel = os.path.relpath(jdir,ProjectTest.path_to_project)
+    file_str += f'{rel}\n'
 
 file_str += f'\n------Excluding googletest file folders -------\n'        
 for jdir in ProjectTest.folders_ignore_with_file_type['test']:
-    file_str += f'{jdir}\n'        
+    rel = os.path.relpath(jdir,ProjectTest.path_to_project)
+    file_str += f'{rel}\n'      
 
 file_str += '\n------- test files included -------'
 for jfile in ProjectTest.files['test']:
