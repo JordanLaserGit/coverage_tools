@@ -1,23 +1,110 @@
-NGEN TEST COVERAGE REPORT
+PROJECT TEST COVERAGE REPORT
 --------------------------
 
 test name: test_everything
 
 ------Build options-----
-DBMI_C_LIB_ACTIVE : ON
-DBMI_FORTRAN_ACTIVE : ON
+DBMI_C_LIB_ACTIVE : FALSE
+DBMI_FORTRAN_ACTIVE : FALSE
 DCMAKE_BUILD_TYPE : Debug
-DCOVERAGE : ON
+DCOVERAGE : TRUE
 DET_QUIET : FALSE
-DLSTM_TORCH_LIB_ACTIVE : OFF
-DMPI_ACTIVE : OFF
-DNETCDF_ACTIVE : OFF
-DNGEN_ACTIVATE_PYTHON : ON
-DNGEN_ACTIVATE_ROUTING : OFF
+DLSTM_TORCH_LIB_ACTIVE : FALSE
+DMPI_ACTIVE : FALSE
+DNETCDF_ACTIVE : FALSE
+DNGEN_ACTIVATE_PYTHON : FALSE
+DNGEN_ACTIVATE_ROUTING : FALSE
 DNGEN_QUIET : FALSE
-DUDUNITS_ACTIVE : ON
-DDUDUNITS_QUIET : ON
-DQUIET : OFF
+DUDUNITS_ACTIVE : TRUE
+DDUDUNITS_QUIET : TRUE
+DQUIET : FALSE
+
+------Including source files from folders -------
+/home/jlaser/code/ngen/src
+/home/jlaser/code/ngen/src/models
+/home/jlaser/code/ngen/src/models/kernels
+/home/jlaser/code/ngen/src/models/kernels/reservoir
+/home/jlaser/code/ngen/src/models/kernels/evapotranspiration
+/home/jlaser/code/ngen/src/models/tshirt
+/home/jlaser/code/ngen/src/models/lstm
+/home/jlaser/code/ngen/src/core
+/home/jlaser/code/ngen/src/core/hydrolocation
+/home/jlaser/code/ngen/src/core/catchment
+/home/jlaser/code/ngen/src/core/catchment/giuh
+/home/jlaser/code/ngen/src/core/nexus
+/home/jlaser/code/ngen/src/core/mediator
+/home/jlaser/code/ngen/src/forcing
+/home/jlaser/code/ngen/src/realizations
+/home/jlaser/code/ngen/src/realizations/catchment
+/home/jlaser/code/ngen/src/routing
+/home/jlaser/code/ngen/src/geojson
+/home/jlaser/code/ngen/src/geojson/features
+
+------Excluding source file folders -------
+
+------- source files included -------
+models/kernels/reservoir/Reservoir_Linear_Outlet_Timeless.cpp
+models/kernels/reservoir/Reservoir_Timeless.cpp
+models/kernels/reservoir/Reservoir_Exponential_Outlet.cpp
+models/kernels/reservoir/Reservoir_Outlet_Timeless.cpp
+models/kernels/reservoir/Reservoir.cpp
+models/kernels/reservoir/Reservoir_Linear_Outlet.cpp
+models/kernels/reservoir/Reservoir_Exponential_Outlet_Timeless.cpp
+models/kernels/reservoir/Reservoir_Outlet.cpp
+models/kernels/evapotranspiration/EtCombinationMethod.cpp
+models/kernels/evapotranspiration/EtCalcProperty.cpp
+models/tshirt/Tshirt.cpp
+models/tshirt/tshirt_c.cpp
+models/lstm/LSTM.cpp
+core/HY_HydroFeature.cpp
+core/HY_Features.cpp
+core/network.cpp
+core/HY_Features_MPI.cpp
+core/GM_Object.cpp
+core/hydrolocation/HY_IndirectPosition.cpp
+core/hydrolocation/HY_HydroLocation.cpp
+core/catchment/HY_DendriticCatchment.cpp
+core/catchment/HY_CatchmentRealization.cpp
+core/catchment/HY_CatchmentDivide.cpp
+core/catchment/HY_CartographicRealization.cpp
+core/catchment/HY_CatchmentArea.cpp
+core/catchment/HY_Catchment.cpp
+core/catchment/HY_FlowPath.cpp
+core/catchment/HY_InteriorCatchment.cpp
+core/catchment/HY_CatchmentAggregate.cpp
+core/catchment/HY_HydroNetwork.cpp
+core/catchment/giuh/GiuhJsonReader.cpp
+core/catchment/giuh/GIUH.cpp
+core/nexus/HY_HydroNexus.cpp
+core/nexus/HY_PointHydroNexus.cpp
+core/nexus/HY_PointHydroNexusRemote.cpp
+core/mediator/UnitsHelper.cpp
+forcing/NetCDFPerFeatureDataProvider.cpp
+realizations/catchment/Bmi_Py_Adapter.cpp
+realizations/catchment/Tshirt_C_Realization.cpp
+realizations/catchment/Formulation_Manager.cpp
+realizations/catchment/Simple_Lumped_Model_Realization.cpp
+realizations/catchment/Bmi_Fortran_Adapter.cpp
+realizations/catchment/Bmi_Py_Formulation.cpp
+realizations/catchment/Bmi_C_Formulation.cpp
+realizations/catchment/Bmi_Fortran_Formulation.cpp
+realizations/catchment/Bmi_Cpp_Formulation.cpp
+realizations/catchment/Bmi_C_Adapter.cpp
+realizations/catchment/LSTM_Realization.cpp
+realizations/catchment/Tshirt_Realization.cpp
+realizations/catchment/Bmi_Cpp_Adapter.cpp
+realizations/catchment/Bmi_Multi_Formulation.cpp
+routing/Routing_Py_Adapter.cpp
+geojson/FeatureCollection.cpp
+geojson/JSONGeometry.cpp
+
+------- source files excluded -------
+NGen.cpp
+partitionGenerator.cpp
+JSONProperty.cpp
+test_main.cpp
+FeatureBase.cpp
+PolygonFeature.cpp
 
 ------Including googletest files from folders -------
 /home/jlaser/code/ngen/test
@@ -29,28 +116,23 @@ DQUIET : OFF
 /home/jlaser/code/ngen/test/models/lstm
 /home/jlaser/code/ngen/test/models/lstm/include
 /home/jlaser/code/ngen/test/utils
-/home/jlaser/code/ngen/test/utils/coverage
-/home/jlaser/code/ngen/test/utils/coverage/__pycache__
 /home/jlaser/code/ngen/test/core
 /home/jlaser/code/ngen/test/core/catchment
 /home/jlaser/code/ngen/test/core/catchment/giuh
 /home/jlaser/code/ngen/test/core/nexus
 /home/jlaser/code/ngen/test/core/mediator
+/home/jlaser/code/ngen/test/coverage
 /home/jlaser/code/ngen/test/forcing
 /home/jlaser/code/ngen/test/realizations
 /home/jlaser/code/ngen/test/realizations/catchments
 /home/jlaser/code/ngen/test/routing
 /home/jlaser/code/ngen/test/geojson
 
-------Excluding googletest files from folders -------
+------Excluding googletest file folders -------
 /home/jlaser/code/ngen/test/simulation_time
 /home/jlaser/code/ngen/test/utils/include
 
-There are googletest in these folders that you are not including:
-/home/jlaser/code/ngen/test/simulation_time
-/home/jlaser/code/ngen/test/utils/include
-
-------- TEST FILES INCLUDED -------
+------- test files included -------
 models/hymod/include/Reservoir_Test.cpp
 models/hymod/include/Reservoir_Timeless_Test.cpp
 models/tshirt/include/TshirtTest.cpp
@@ -63,25 +145,15 @@ forcing/NetCDFPerFeatureDataProvider_Test.cpp
 forcing/OptionalWrappedDataProvider_Test.cpp
 forcing/CsvPerFeatureForcingProvider_Test.cpp
 realizations/Formulation_Manager_Test.cpp
-realizations/catchments/Bmi_Cpp_Multi_Array_Test.cpp
-realizations/catchments/Bmi_Py_Formulation_Test.cpp
-realizations/catchments/Bmi_Fortran_Formulation_Test.cpp
 realizations/catchments/Bmi_Multi_Formulation_Test.cpp
-realizations/catchments/Bmi_Py_Adapter_Test.cpp
 realizations/catchments/Bmi_C_Cfe_IT.cpp
-realizations/catchments/Bmi_Cpp_Adapter_Test.cpp
-realizations/catchments/Bmi_Fortran_Adapter_Test.cpp
-realizations/catchments/Bmi_C_Adapter_Test.cpp
-realizations/catchments/Bmi_C_Formulation_Test.cpp
-realizations/catchments/Bmi_Cpp_Formulation_Test.cpp
-realizations/catchments/Bmi_C_Pet_IT.cpp
 realizations/catchments/Tshirt_C_Realization_Test.cpp
 geojson/JSONProperty_Test.cpp
 geojson/Feature_Test.cpp
 geojson/JSONGeometry_Test.cpp
 geojson/FeatureCollection_Test.cpp
 
-------- TEST FILES EXCLUDED -------
+------- test files excluded -------
 simulation_time/Simulation_Time_Test.cpp
 utils/include/StreamOutputTest.cpp
 Schaake_Partitioning_Test.cpp
@@ -89,7 +161,17 @@ HymodTest.cpp
 Pdm03_Test.cpp
 Et_Calc_Function_Test.cpp
 Et_All_Methods_Test.cpp
+Bmi_Cpp_Adapter_Test.cpp
+Bmi_Cpp_Formulation_Test.cpp
+Bmi_C_Pet_IT.cpp
+Bmi_Cpp_Multi_Array_Test.cpp
+realizations/catchments/Bmi_C_Adapter_Test.cpp
+realizations/catchments/Bmi_C_Formulation_Test.cpp
 models/lstm/include/LSTM_Test.cpp
 realizations/catchments/LSTM_Realization_Test.cpp
+realizations/catchments/Bmi_Fortran_Formulation_Test.cpp
+realizations/catchments/Bmi_Fortran_Adapter_Test.cpp
+realizations/catchments/Bmi_Py_Adapter_Test.cpp
+realizations/catchments/Bmi_Py_Formulation_Test.cpp
 routing/Routing_Py_Bind_Test.cpp
 core/nexus/NexusRemoteTests.cpp
