@@ -61,6 +61,13 @@ for joption in cmake_options:
     val = cmake_options[joption]
     file_str += f'\n{joption} : {val}'
 
+src_leave_out = []
+ProjectSrc = Files(['src'],['cpp'])
+ProjectSrc.set_project_path(project_path)
+ProjectSrc.folders_leave_out('src',config['src_dirs_leave_out'])
+ProjectSrc.files_leave_out('src',config['src_leave_out'])
+ProjectSrc.find_folders()
+ProjectSrc.files = ProjectSrc.find_files()
 
 # Create list of keywords to leave out based on options
 test_leave_out = config['gtest_leave_out'].copy()
@@ -86,45 +93,41 @@ ProjectTest.files_leave_out('test',test_leave_out)
 ProjectTest.find_folders()
 ProjectTest.files = ProjectTest.find_files()
 
+# Write summary text file
+file_str += f'\n\n------Including source files from folders -------\n'        
+for jdir in ProjectSrc.folders['src']:
+    file_str += f'{jdir}\n'
+
+file_str += f'\n------Excluding source file folders -------\n'        
+for jdir in ProjectSrc.folders_ignore_with_file_type['src']:
+    file_str += f'{jdir}\n'        
+
+file_str += '\n------- source files included -------'
+for jfile in ProjectSrc.files['src']:
+    file_str += f'\n{jfile}'
+
+file_str += '\n\n------- source files excluded -------'
+for jfile in ProjectSrc.files_ignored['src']:
+    file_str += f'\n{jfile}'
+
+
+
 file_str += f'\n\n------Including googletest files from folders -------\n'        
 for jdir in ProjectTest.folders['test']:
     file_str += f'{jdir}\n'
 
-
-file_str += f'\n------Excluding googletest files from folders -------\n'        
+file_str += f'\n------Excluding googletest file folders -------\n'        
 for jdir in ProjectTest.folders_ignore_with_file_type['test']:
-    file_str += f'{jdir}\n'    
+    file_str += f'{jdir}\n'        
 
-
-# file_str += f'\nNo google tests in:\n'
-# for jdir in ProjectTest.folders_ignore_wo_file_type:
-#     file_str += f'{jdir}\n'      
-
-
-file_str += f'\nThere are googletest in these folders that you are not including:\n'
-for jdir in ProjectTest.folders_ignore_with_file_type['test']:
-    file_str += f'{jdir}\n'
-
-
-file_str += '\n------- TEST FILES INCLUDED -------'
+file_str += '\n------- test files included -------'
 for jfile in ProjectTest.files['test']:
     file_str += f'\n{jfile}'
 
-
-file_str += '\n\n------- TEST FILES EXCLUDED -------'
+file_str += '\n\n------- test files excluded -------'
 for jfile in ProjectTest.files_ignored['test']:
     file_str += f'\n{jfile}'
 
-# # Search for any folder containing a header file
-# ProjectLibsDirs = Files(config['target_dirs'],['h','hpp'])
-# ProjectLibsDirs.set_project_path(project_path)
-# for jtop in config['target_dirs']:
-#     ProjectLibsDirs.folders_leave_out(jtop,config['target_dirs_leave_out'][jtop])
-# ProjectLibsDirs.find_folders()
-# ProjectLibsDirs.folders['extra'] = config['target_dirs_add']
-
-
-# Write summary text file
 coverage_path = os.path.join(ProjectTest.path_to_project,'test/coverage/')
 text_file = open(coverage_path + f'{test_name}_file_summary.txt','w')
 text_file.write(file_str)
@@ -133,11 +136,16 @@ text_file.close()
 # Write CMakeLists.txt custom test inputs
 out_path = os.path.join(coverage_path,f'{test_name}-text.txt')
 print(f'Writing to {out_path}')
+ntests = len(ProjectTest.files['test'])
+nsrcs  = len(ProjectSrc.files['src'])
 with open(out_path,'w') as f:
     f.write(config['test_name'])
     f.write('\n')
-    f.write(str(len(ProjectTest.files['test'])))
+    f.write(str(ntests + nsrcs))
     f.write('\n')
+    for jtest in ProjectSrc.files['src']:
+        f.write("../src/" + jtest)
+        f.write('\n')
     for jtest in ProjectTest.files['test']:
         f.write(jtest)
         f.write('\n')

@@ -23,7 +23,8 @@ mkdir -p "$project_root/test/coverage"
 # Generate test -text.txt to be read by CMakeLists.txt
 cov_dir=$(dirname "$config")
 python_script="$cov_dir/test_coverage.py"
-python -u $python_script $config $project_root
+python -u $python_script $config $project_root \
+|| { echo 'Generating GoogleTest list failed' ; exit 1; }
 
 # Change working directory to project root
 cd $project_root
@@ -41,13 +42,11 @@ cmake "${build_args[@]}" \
 || { echo 'Generating build folder failed' ; exit 1; }
 
 # Build test
-cmake --build $build_folder --target $test_name -- -j 4 \
+cmake --build $build_folder --target $test_name -j 4 \
 || { echo 'Building the test failed' ; exit 1; }
 
 # Execute test and get coverage
 cd $build_folder
-make "gcov_$test_name" || make "lcov_$test_name"
-
-lcov="$build_folder/test/lcoverage_$test_name/index.html"
-lcov_out="$project_root/utilities/coverage_tools/data/coverage_report.html"
-cp $lcov $lcov_out
+# make
+make gcov
+make lcov

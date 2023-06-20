@@ -21,6 +21,19 @@
 
     },
 
+    "src_leave_out" : [
+        "NGen.cpp",
+        "partitionGenerator.cpp",
+        "JSONProperty.cpp",
+        "test_main.cpp",
+        "FeatureBase.cpp",
+        "PolygonFeature.cpp"
+
+    ],
+
+    "src_dirs_leave_out" : [
+    ],
+
     "gtest_dirs_leave_out" : [
         "simulation_time",
         "utils/include"
@@ -31,7 +44,11 @@
         "HymodTest.cpp",
         "Pdm03_Test.cpp",
         "Et_Calc_Function_Test.cpp",
-        "Et_All_Methods_Test.cpp"  
+        "Et_All_Methods_Test.cpp",
+        "Bmi_Cpp_Adapter_Test.cpp",
+        "Bmi_Cpp_Formulation_Test.cpp",
+        "Bmi_C_Pet_IT.cpp",
+        "Bmi_Cpp_Multi_Array_Test.cpp"
     ],
 
     "target_dirs":[

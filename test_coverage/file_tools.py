@@ -138,7 +138,7 @@ class Files():
                                 ii_ignored = True
                                 break
                         if not ii_ignored:
-                            raise Exception(f'{jfile} not ignored!! Ignored:{leave_out_files[jtop]}')
+                            raise Exception(f'{jfile} not ignored!! Ignored:{leave_out_files[jtop]}, Please check the file name to ensure it actually is a google test')
                     for jfile in files_ignore[jtop]:
                         self.files_ignored[jtop].append(jfile)
 
