@@ -20,25 +20,25 @@ DDUDUNITS_QUIET : TRUE
 DQUIET : FALSE
 
 ------Including source files from folders -------
-/home/jlaser/code/ngen/src
-/home/jlaser/code/ngen/src/models
-/home/jlaser/code/ngen/src/models/kernels
-/home/jlaser/code/ngen/src/models/kernels/reservoir
-/home/jlaser/code/ngen/src/models/kernels/evapotranspiration
-/home/jlaser/code/ngen/src/models/tshirt
-/home/jlaser/code/ngen/src/models/lstm
-/home/jlaser/code/ngen/src/core
-/home/jlaser/code/ngen/src/core/hydrolocation
-/home/jlaser/code/ngen/src/core/catchment
-/home/jlaser/code/ngen/src/core/catchment/giuh
-/home/jlaser/code/ngen/src/core/nexus
-/home/jlaser/code/ngen/src/core/mediator
-/home/jlaser/code/ngen/src/forcing
-/home/jlaser/code/ngen/src/realizations
-/home/jlaser/code/ngen/src/realizations/catchment
-/home/jlaser/code/ngen/src/routing
-/home/jlaser/code/ngen/src/geojson
-/home/jlaser/code/ngen/src/geojson/features
+src
+src/models
+src/models/kernels
+src/models/kernels/reservoir
+src/models/kernels/evapotranspiration
+src/models/tshirt
+src/models/lstm
+src/core
+src/core/hydrolocation
+src/core/catchment
+src/core/catchment/giuh
+src/core/nexus
+src/core/mediator
+src/forcing
+src/realizations
+src/realizations/catchment
+src/routing
+src/geojson
+src/geojson/features
 
 ------Excluding source file folders -------
 
@@ -107,30 +107,30 @@ FeatureBase.cpp
 PolygonFeature.cpp
 
 ------Including googletest files from folders -------
-/home/jlaser/code/ngen/test
-/home/jlaser/code/ngen/test/models
-/home/jlaser/code/ngen/test/models/hymod
-/home/jlaser/code/ngen/test/models/hymod/include
-/home/jlaser/code/ngen/test/models/tshirt
-/home/jlaser/code/ngen/test/models/tshirt/include
-/home/jlaser/code/ngen/test/models/lstm
-/home/jlaser/code/ngen/test/models/lstm/include
-/home/jlaser/code/ngen/test/utils
-/home/jlaser/code/ngen/test/core
-/home/jlaser/code/ngen/test/core/catchment
-/home/jlaser/code/ngen/test/core/catchment/giuh
-/home/jlaser/code/ngen/test/core/nexus
-/home/jlaser/code/ngen/test/core/mediator
-/home/jlaser/code/ngen/test/coverage
-/home/jlaser/code/ngen/test/forcing
-/home/jlaser/code/ngen/test/realizations
-/home/jlaser/code/ngen/test/realizations/catchments
-/home/jlaser/code/ngen/test/routing
-/home/jlaser/code/ngen/test/geojson
+test
+test/models
+test/models/hymod
+test/models/hymod/include
+test/models/tshirt
+test/models/tshirt/include
+test/models/lstm
+test/models/lstm/include
+test/utils
+test/core
+test/core/catchment
+test/core/catchment/giuh
+test/core/nexus
+test/core/mediator
+test/coverage
+test/forcing
+test/realizations
+test/realizations/catchments
+test/routing
+test/geojson
 
 ------Excluding googletest file folders -------
-/home/jlaser/code/ngen/test/simulation_time
-/home/jlaser/code/ngen/test/utils/include
+test/simulation_time
+test/utils/include
 
 ------- test files included -------
 models/hymod/include/Reservoir_Test.cpp
